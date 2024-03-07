@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Calculator.css";
 
-import { FaFacebook } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
-
+import { FaDeleteLeft } from "react-icons/fa6";
 
 
 const Calculator = () => {
@@ -14,7 +13,7 @@ const Calculator = () => {
   const [pendingValue, setPendingValue] = useState(null);
   const [completeOperation, setCompleteOperation] = useState("");
 
-  const keypadNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  const keypadNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
   const operations = ["+", "-", "*", "/"];
 
   const handleClick = (val) => {
@@ -39,7 +38,7 @@ const Calculator = () => {
     setCurrentValue("0");
     setPendingOperation(null);
     setPendingValue(null);
-    setCompleteOperation("");
+    setCompleteOperation(" ");
   };
 
   const handleCalculate = () => {
@@ -85,6 +84,17 @@ const Calculator = () => {
     setPendingValue(null);
   };
 
+  const handleDelete = () => {
+    setCurrentValue((prevValue) => {
+      if (prevValue.length === 1) {
+        return "0";
+      } else {
+        return prevValue.slice(0, -1);
+      }
+    });
+    setCompleteOperation((prevOperation) => prevOperation.slice(0, -1));
+  };
+
   useEffect(() => {
     //    Função que vai capturar a tela pricionada
     const handleKeyDown = (event) => {
@@ -122,25 +132,28 @@ const Calculator = () => {
           </button>
         ))}
         <button onClick={handleCalculate}>=</button>
+        <button onClick={handleDelete}>
+        <FaDeleteLeft />
+        </button>
       </div>
 
       {/*REDES SOCIAIS*/}
       <div className="baseboard">
         <div className="icons">
-
           <a href="https://www.linkedin.com/in/andr%C3%A9-oliver-a20393261/">
             <FaLinkedin size={30} color="white" />
           </a>
           <a href="https://www.instagram.com/andregttr/">
             <RiInstagramFill size={30} color="white" />
           </a>
-
           <a href="https://github.com/andrezinhodev">
             <FaGithub size={30} color="white" />
           </a>
         </div>
       </div>
-      <div className="credits"><span>@AndreDev</span></div>
+      <div className="credits">
+        <span>@AndreDev</span>
+      </div>
     </div>
   );
 };
