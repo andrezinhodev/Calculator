@@ -14,7 +14,7 @@ const Calculator = () => {
   const [completeOperation, setCompleteOperation] = useState("");
 
   const keypadNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-  const operations = ["+", "-", "*", "/"];
+  const operations = ["+", "-", "x", "÷"];
 
   const handleClick = (val) => {
     setCurrentValue((prevValue) => {
@@ -55,13 +55,13 @@ const Calculator = () => {
       case "+":
         result = num1 + num2;
         break;
-      case "*":
+      case "x":
         result = num1 * num2;
         break;
       case "-":
         result = num1 - num2;
         break;
-      case "/":
+      case "÷":
         if (num2 !== 0) {
           result = num1 / num2;
         } else {
