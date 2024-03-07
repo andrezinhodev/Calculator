@@ -7,4 +7,4 @@
  <a href="https://calculator-five-alpha-75.vercel.app/">Project-Calculator</a>
 
  
-<img src="https://github.com/andrezinhodev/Calculator/blob/main/public/project.jpg" alt="Capa do projeto">
+<img src="https://github.com/andrezinhodev/Calculator/blob/main/public/Atualiza%C3%A7%C3%A3o.jpg" alt="Capa do projeto">
